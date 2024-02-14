@@ -47,6 +47,6 @@ java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > junit-output.txt
 
 lastline=$(cat junit-output.txt | tail -n 2 | head -1) 
 tests=$(echo $lastline |awk -F '[, ]' '{print $3}')
-failures=$(echo $lastline | awk -F '(, )' '{print $6}')
-sucesses=$((tests-failures))
+failures=$(echo $lastline | awk -F '[, ]' '{print $6}')
+sucesses=$((tests - failures))
 echo "your score is $sucesses / $tests"
