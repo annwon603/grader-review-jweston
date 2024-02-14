@@ -1,4 +1,4 @@
-CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
+CPATH='.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar'
 
 rm -rf student-submission
 rm -rf grading-area
@@ -6,7 +6,7 @@ rm -rf git-output.txt
 
 mkdir grading-area
 
-git clone $1 student-submission > git-output.txt
+git clone $1 student-submission 8> git-output.txt
 echo 'Finished cloning'
 
 # Draw a picture/take notes on the directory structure that's set up after
