@@ -56,6 +56,5 @@ fi
 
 tests=$(echo $lastline | awk -F'[, ]' '{print $3}')
 failures=$(echo $lastline | awk -F'[, ]' '{print $6}')
-
-sucesses=$((tests - failures))
+sucesses=$((tests-failures))
 echo "your score is $sucesses / $tests"
