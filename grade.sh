@@ -45,8 +45,17 @@ fi
 #run the tester with Junit
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > junit-output.txt
 
-lastline=$(cat junit-output.txt | tail -n 2 | head -1) 
-tests=$(echo $lastline |awk -F '[, ]' '{print $3}')
-failures=$(echo $lastline | awk -F '(, )' '{print $6}')
-sucesses=$((tests-failures))
+lastline=$(cat junit-output.txt | tail -n 2 | head -n 1) 
+echo $lastline
+
+if echo "$lastline" | grep -q "OK";
+then
+    echo "1/1"
+    exit 
+fi
+
+tests=$(echo $lastline | awk -F'[, ]' '{print $3}')
+failures=$(echo $lastline | awk -F'[, ]' '{print $6}')
+
+sucesses=$((tests - failures))
 echo "your score is $sucesses / $tests"
