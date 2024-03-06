@@ -15,7 +15,7 @@ echo 'Finished cloning'
 # Then, add here code to compile and run, and do any post-processing of the
 # tests
 
-#Checking for files to test in directory
+# Checking for files to test in directory
 if [[ -f student-submission/ListExamples.java ]]
 then
     cp student-submission/ListExamples.java grading-area/
@@ -27,10 +27,7 @@ else
     exit 1
 fi
 
-#see the directory and cd into grading then see if it worked
-pwd
 cd grading-area
-pwd
 
 # compiles code
 javac -cp $CPATH *.java
