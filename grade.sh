@@ -18,8 +18,7 @@ echo 'Finished cloning'
 # Checking for files to test in directory
 if [[ -f student-submission/ListExamples.java ]]
 then
-    cp student-submission/ListExamples.java grading-area/
-    cp TestListExamples.java grading-area/
+    cp TestListExamples.java student-submission/ListExamples.java grading-area/
     cp -r lib grading-area/
     echo "File found!"
 else
