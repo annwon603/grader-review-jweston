@@ -23,7 +23,7 @@ then
     cp -r lib grading-area/
     echo "File found!"
 else
-    echo "Missing student-submission/ListExamples.java, did you forget the file or misname it?"
+    echo "Missing ListExamples.java, did you forget the file or misname it?"
     exit 1
 fi
 
@@ -32,17 +32,17 @@ pwd
 cd grading-area
 pwd
 
-#comples code
+# compiles code
 javac -cp $CPATH *.java
 
-#check for comple errors
+# check for compile errors
 if [[ $? -ne 0 ]]
 then
-    echo "The program failed to comple, see compile error above"
+    echo "The program failed to compile, see compile error above."
     exit 1
 fi
 
-#run the tester with Junit
+# run the tester with Junit
 java -cp $CPATH org.junit.runner.JUnitCore TestListExamples > junit-output.txt
 
 lastline=$(cat junit-output.txt | tail -n 2 | head -n 1) 
@@ -57,4 +57,4 @@ fi
 tests=$(echo $lastline | awk -F'[, ]' '{print $3}')
 failures=$(echo $lastline | awk -F'[, ]' '{print $6}')
 sucesses=$((tests-failures))
-echo "your score is $sucesses / $tests"
+echo "Your score is $sucesses / $tests"
